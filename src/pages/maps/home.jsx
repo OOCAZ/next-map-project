@@ -7,7 +7,7 @@ export default function Home() {
   const features = data.features
   const coords = [[0,0,0]]
   features.forEach( feature => {
-    coords.push([feature.geometry.coordinates[0],feature.geometry.coordinates[1],feature.id])
+    coords.push([feature.geometry.coordinates[0],feature.geometry.coordinates[1],feature.geometry.coordinates[2],feature.id])
   })
   const [center, setCenter] = React.useState([39.69960614291127, -105.08409829929842])
   const [zoom, setZoom] = React.useState(3)
@@ -25,20 +25,13 @@ export default function Home() {
     >
       {coords && coords.map((element, index) => (
         <Marker 
-        key={element[2]}
+        key={element[3]}
         width={10}
         anchor={[parseFloat(element[1]), parseFloat(element[0])]} 
       >
-          <ImAirplane style={{color:"black"}}/>
+          <ImAirplane style={{color:"black", transform: `rotate(${element[2]}deg)`}}/>
       </Marker>
 ))}
-
-      <Marker 
-        width={10} // this adds error zooming out and does not control size
-        anchor={[39.69960614291127, -105.08409829929842]} 
-      >
-          <ImAirplane style={{color:"black"}}/>
-      </Marker>
       <ZoomControl />
     </Map>
     </div>
