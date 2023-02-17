@@ -23,13 +23,13 @@ export default function Home() {
         setZoom(zoom) 
       }} 
     >
-      {coords && coords.map((element, index) => (
+      {coords && coords.map(element => (
         <Marker 
         key={element[3]}
         width={10}
         anchor={[parseFloat(element[1]), parseFloat(element[0])]} 
       >
-          <ImAirplane style={{color:"black", transform: `rotate(${element[2]}deg)`}}/>
+          <ImAirplane style={{color:"black", transform: `rotate(${parseInt(element[2])}deg)`}}/>
       </Marker>
 ))}
       <ZoomControl />
