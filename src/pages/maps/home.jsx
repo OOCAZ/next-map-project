@@ -23,10 +23,10 @@ export default function Home() {
         setZoom(zoom) 
       }} 
     >{coords.map((element, index) => (
-    <div key={coords[index][2]}>
+    <div key={element[index][2]}>
         <Marker 
         width={10}
-        anchor={[coords[index][1], coords[index][0]]} 
+        anchor={[element[index][1], element[index][0]]} 
       >
       
           <ImAirplane style={{color:"black"}}/>
