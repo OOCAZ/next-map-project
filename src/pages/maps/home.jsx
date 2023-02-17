@@ -1,7 +1,7 @@
-import { Map, Marker, ZoomControl } from "pigeon-maps"
+import { Map, Marker, ZoomControl } from "pigeon-maps";
 import { ImAirplane } from 'react-icons/im';
-import React from "react"
-import data from '../../exampleData/quakesSmall.json'
+import React from "react";
+import data from '../../exampleData/quakesSmall.json';
 
 export default function Home() {
   const features = data.features
@@ -22,16 +22,15 @@ export default function Home() {
         setCenter(center) 
         setZoom(zoom) 
       }} 
-    >{coords.map((element, index) => (
-    <div key={element[index][2]}>
+    >
+      {coords && coords.map((element, index) => (
         <Marker 
+        key={element[2]}
         width={10}
-        anchor={[element[index][1], element[index][0]]} 
+        anchor={[parseFloat(element[1]), parseFloat(element[0])]} 
       >
-      
           <ImAirplane style={{color:"black"}}/>
       </Marker>
-    </div>
 ))}
 
       <Marker 
