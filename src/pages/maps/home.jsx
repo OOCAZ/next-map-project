@@ -23,7 +23,7 @@ export default function Home() {
         setZoom(zoom) 
       }} 
     >
-      {coords && coords.map(element => (
+      {coords.map(element => (
         <Marker 
         key={element[3]}
         width={10}
