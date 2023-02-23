@@ -1,10 +1,11 @@
-import { Map, Marker, ZoomControl, GeoJsonLoader } from "pigeon-maps";
+import { Map, Marker, ZoomControl, GeoJson } from "pigeon-maps";
 import { ImAirplane } from 'react-icons/im';
 import React from "react";
 import data from '../../exampleData/quakesSmall.json';
+import data2 from '../../exampleData/airspaceTest.geo.json';
 
 export default function Home() {
-  const geoJsonLink = "https://raw.githubusercontent.com/isellsoap/deutschlandGeoJSON/main/2_bundeslaender/4_niedrig.geo.json"
+  const geoJsonLink = "./exampleData/airspaceTest.geo.json" //"https://raw.githubusercontent.com/isellsoap/deutschlandGeoJSON/main/2_bundeslaender/4_niedrig.geo.json"
   const features = data.features
   const coords = [[0,0,0]]
   features.forEach( feature => {
@@ -33,8 +34,8 @@ export default function Home() {
           <ImAirplane style={{color:"black", transform: `rotate(${parseInt(element[2])}deg)`}}/>
       </Marker>
 ))}
-      <GeoJsonLoader
-        link={geoJsonLink}
+      <GeoJson
+        data={data2}
         styleCallback={(feature, hover) =>
           hover
             ? { fill: '#93c0d099', strokeWidth: '2'}
