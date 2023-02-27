@@ -27,7 +27,7 @@ export default function Home() {
       <Card sx={{width:'85vw'}}>
         <CardContent>
           <Typography>
-            View Airspaces and Tracks
+            View planes and germany
           </Typography>
           </CardContent>
           </Card>
