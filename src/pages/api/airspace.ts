@@ -1,10 +1,17 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
-import data2 from '../../exampleData/airspaceTest.geo.json';
 
-export default function handler(
+async function dataFetcher(){
+    const response = await fetch("http://localhost:3000/api/testloader")
+    return response.json()
+}
+
+export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  res.status(200).json(data2)
+    const response = await fetch("http://localhost:3000/api/testloader")
+    const data = response.json()
+    console.log(data)
+  res.status(200).json(data)
 }
