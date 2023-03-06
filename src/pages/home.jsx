@@ -1,4 +1,4 @@
-import { Map, Marker, ZoomControl, GeoJsonLoader } from "pigeon-maps";
+import { Map, Marker, ZoomControl, GeoJsonLoader, GeoJson } from "pigeon-maps";
 import { Card, Typography } from "@mui/material";
 import { ImAirplane } from 'react-icons/im';
 import React from "react";
