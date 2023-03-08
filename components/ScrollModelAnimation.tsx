@@ -84,9 +84,9 @@ const ScrollModelAnimation = () => {
       mesh4.position.x = -3;
       mesh5.position.x = 3;
 
-      mesh1.position.y = -objectDistance * 0;
+      mesh1.position.y = -objectDistance * 2;
       mesh2.position.y = -objectDistance * 1;
-      mesh3.position.y = -objectDistance * 2;
+      mesh3.position.y = -objectDistance * 0;
       mesh4.position.y = -objectDistance * 3;
       mesh5.position.y = -objectDistance * 4;
 
