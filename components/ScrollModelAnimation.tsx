@@ -3,7 +3,6 @@ import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 import gsap from "gsap";
 import { DivContainer, DivSpinner } from "./ScrollPage";
-import { loadGLTFModel } from "../lib/model";
 
 const ScrollModelAnimation = () => {
   const [loading, setLoading] = useState(true);
@@ -38,25 +37,7 @@ const ScrollModelAnimation = () => {
 
       //Object
 
-      loadGLTFModel(scene, "/Desktop.glb", {
-        receiveShadow: true,
-        castShadow: true,
-      }).then(() => {
-        setLoading(false);
-      });
-
       const objectDistance = 4;
-      const mesh1 = new THREE.Mesh(
-        new THREE.TorusGeometry(1, 0.4, 16, 60),
-        material
-      );
-
-      const mesh2 = new THREE.Mesh(
-        new THREE.SphereGeometry(1),
-        new THREE.MeshStandardMaterial({
-          map: moonTexture,
-        })
-      );
 
       const mesh3 = new THREE.Mesh(
         new THREE.SphereGeometry(1),
@@ -64,35 +45,18 @@ const ScrollModelAnimation = () => {
           map: eartTexture,
         })
       );
-      const mesh4 = new THREE.Mesh(
-        new THREE.SphereGeometry(1),
-        new THREE.MeshStandardMaterial({
-          map: sunTexture,
-        })
-      );
-      const mesh5 = new THREE.Mesh(
-        new THREE.SphereGeometry(1),
-        new THREE.MeshStandardMaterial({
-          color: "red",
-          wireframe: true,
-        })
-      );
+      
 
-      mesh1.position.x = 3;
-      mesh2.position.x = -3;
-      mesh3.position.x = 3;
-      mesh4.position.x = -3;
-      mesh5.position.x = 3;
 
-      mesh1.position.y = -objectDistance * 2;
-      mesh2.position.y = -objectDistance * 1;
+      mesh3.position.x = 0;
+
+
+
       mesh3.position.y = -objectDistance * 0;
-      mesh4.position.y = -objectDistance * 3;
-      mesh5.position.y = -objectDistance * 4;
 
-      scene.add(mesh1, mesh2, mesh3, mesh4, mesh5);
-      const sectionMeshes = [mesh1, mesh2, mesh3, mesh4, mesh5];
-      mesh1.visible = false;
+
+      scene.add( mesh3,);
+      const sectionMeshes = [ mesh3, ];
 
       //Lights
       const directioanlLight = new THREE.DirectionalLight(0xffffff, 1);
@@ -152,7 +116,7 @@ const ScrollModelAnimation = () => {
 
       //Base Camera
       const camera = new THREE.PerspectiveCamera(
-        35,
+        50,
         sizes.width / sizes.height,
         0.1,
         100
@@ -244,7 +208,7 @@ const ScrollModelAnimation = () => {
 
         //animate meshes
         for (const mesh of sectionMeshes) {
-          mesh.rotation.x += deltaTime * 0.1;
+          mesh.rotation.x += deltaTime * 0.1; 
           mesh.rotation.y += deltaTime * 0.12;
         }
 
