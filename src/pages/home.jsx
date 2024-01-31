@@ -21,7 +21,7 @@ export default function Home() {
       <Card sx={{width:'85vw'}}>
         <CardContent>
           <Typography>
-            View planes and germany
+            View planes and US
           </Typography>
           </CardContent>
           </Card>
